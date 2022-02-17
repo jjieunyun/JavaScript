@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습_if조건문</title>
+</head>
+<body>
+    
+    <script>
+        //1. 홀수 짝수 판별 (2로 나눴을때 나머지가 0이면 짝수)
+        let number = 4 
+        if (number % 2 == 0) {
+            document.write("<p>짝수 입니다.</p>");
+        }
+
+        else  {
+            document.write("<p>홀수 입니다.</p>");
+        }
+
+        // 2. 음수, 양수, 0판별
+        // num >= 1 양수 , 0 = 0 , num < 0 음수
+        let num = 5;
+        if ( num > 0 ) {
+            document.write("<p>양수 입니다.</p>");
+        }
+        
+        else if ( num < 0)  {
+            document.write("<p>음수 입니다.</p>");
+        }
+
+        else {
+            document.write("<p>0 입니다.</p>");
+        }
+        
+
+        //3. 구매한 가격을 입력하면 할인율이 적용된 금액이 출력됨
+        // 10000원이상 5% , 50000이상 10% , 100000원이상 20% 그외 0
+        //할인율
+        let price = 15000;
+        if ( price >= 100000 ) {
+            document.write("할인 : 20%");
+        }
+
+        else if ( price >= 50000 ) {
+            document.write("할인 : 10%");
+        }
+
+        else if ( price >= 10000 ) {
+            document.write("할인 : 5%");
+        }
+
+        else {
+            document.write("<p>할인없음</p>");
+        }
+        
+
+        let pay = 10000;
+
+        if ( pay >= 100000 ) {
+            pay = pay - pay * 0.2;
+            document.write(`<p>${pay}</P>`);
+        }
+
+        else if ( pay >= 50000 ) {
+            pay = pay - pay * 0.1;
+            document.write(`<p>${pay}</P>`);
+        }
+
+        //복합대입연산자 사용가능
+        else if ( pay >= 10000 ) {
+            pay -= pay * 0.05;
+            document.write(`<p>${pay}</P>`);
+        }
+
+
+    </script>
+
+
+
+</body>
+</html>

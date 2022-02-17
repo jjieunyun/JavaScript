@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열</title>
+</head>
+<body>
+    
+
+    <script>
+
+        //배열 (Array)
+        //배열 이름을 쓰면 전체가 출력이되고, 요소값을 꺼내려면 인덱스를 통해
+        //접근해야한다. ex) booklist[0]  cf.인덱스는 0부터 시작함
+
+        //1차원 배열
+        let booklist = ["책1", "책2", "책3", "책4", 5];
+        document.write(booklist[1]);
+        document.write("<br>")
+
+        //배열 확인법 2가지
+        //(1) booklist instanceof Array   (2) Array.isArray(booklist)
+        document.write(Array.isArray(booklist));
+        document.write("<br>")
+        document.write(booklist instanceof Array);
+        document.write("<br>")
+     
+        //이차원배열
+        let num = [
+                [1,2,3,4],
+                [5,6,7,8],
+                [9,10,11,12],
+                [13,14,15,16]
+        ];
+        //이차원 배열의 값을 꺼내쓸때 인덱스를 두번사용함
+        document.write(num[2][2]);
+
+
+
+    </script>
+</body>
+</html>
