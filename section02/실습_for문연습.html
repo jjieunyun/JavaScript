@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습_for문연습</title>
+</head>
+<body>
+    
+    <script>
+        //점수배열 [60,70,80,90,40,70,70]을 만들어서 평균값구하기
+        //배열안에 있는 점수를 받아와서 평균구하기
+        let scoreArray = [60,70,80,90,40,70,70];
+
+        let scoreSum = 0;
+        for (let score of scoreArray) {
+            scoreSum = scoreSum + score;
+            //scoreSum += score 가능
+
+        }
+        document.write(`<p>${scoreSum/scoreArray.length}<p>`);
+        //scoreArray.length -> 객채의 갯수를 들고옴
+
+
+        
+
+        // 1~100까지 수 중 홀수만 모두 더한 값 출력
+        
+        let oddSum =0;
+        for ( let i = 1; i < 101; i++) {
+            if (i % 2 ==1) {
+            //document.write(i)
+            oddSum += i;
+            }
+        }
+        document.write(`<p>1~100까지 홀수들의 합 : ${oddSum}<p>`);
+
+
+        //1~100까지 3의 배수와 5의 배수 합을 출력
+        
+        let sum3_5 =0;
+        for ( let i = 1; i <= 100; i++) {
+            //3의배수와 5의배수 출력
+            if ((i % 3 ==0) || (i % 5 ==0) ) {
+                //document.write(i) 출력한거 미리보기
+                sum3_5 += i;
+            }
+        }
+        document.write(`<p>1~100까지 3의 배수와 5의배수의 합 : ${sum3_5}<p>`);
+        
+
+    </script>
+
+
+
+</body>
+</html>

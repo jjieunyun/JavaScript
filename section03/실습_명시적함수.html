@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>명시적함수 실습</title>
+    <script>
+        //1. 인수 1개를 h3태그에 넣어서 출력하는 함수 ->print(text)
+        
+        function print(text) { 
+            document.write(`<h3>${text}</h3>`);
+        }
+
+        //2. 인수 2개를 받아와서 두개의 곱을 return하는 함수 --> multi(a,b)
+        //콘솔창에서 확인
+        function  multi (a,b) {
+            let num = a * b
+            return num;
+        }
+
+
+        //3. 배열을 인수로 받아서 배열 안에 있는 값을 화면에 출력하는 함수 -->show(array)
+        //콘솔창에서 확인 show([2,63,5,6,7,5])
+        function show(array) {
+            for (i of array) {
+                document.write(`${i}. `);
+            }
+        }
+        
+
+        
+
+
+    </script>
+</head>
+<body>
+
+
+
+    <script>
+        //1.print
+        print(123); //숫자값
+        print("문자"); //문자값
+        let word = "변수에 들어간 문자 출력"; //변수를 선언하고 변수에 들어간 문자를 출력함
+        print(word);   //이렇게!
+        
+        
+
+        
+        
+
+        
+            
+
+
+    </script>
+</body>
+</html>

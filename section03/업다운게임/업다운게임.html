@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>업다운게임</title>
+</head>
+<body>
+    <h1>업다운 게임</h1>
+    <p>설명</p>
+    <p>
+        1. 컴퓨터가 랜덤한 수를 정한다.<br>
+        2. 사용자는 input-text안에서 숫자를 입력한다.<br>
+        3. input-button을 이용해서 값을 받아온다. document.getElementId("")을 사용<br>
+        <b>4. 이 값을 랜덤한 숫자와 비교해서 큰지 작은지 알려준다. </b><br>
+        5. 랜덤한 수를 맞출 때까지 <b>반복</b><br>
+    </p>
+
+    <p> body아래 script태그에 사용자가 입력할 변수 값(임의)과 랜덤값(math.random*100)을 넣어 
+        if문 만들기 <br>
+        * document.write()를 이용해 알려주기>
+    </p>
+
+    <p>
+        prompt로 값을 받아서 랜덤값을 맞출때 까지 반복 <br>
+         * prompt설명란에 작성한 수가 큰지 작은지 알려주기
+    </p>
+
+    
+
+    <script>
+        
+        //1. 랜덤값으로 if문 만들기
+        /*
+        let random = Math.random()*100; // 0~99까지 들어감.
+            random = parseInt(random); //소수값을 포함하는 랜덤값을 정수만 저장함
+        let user = 40;
+
+        if (random > user) {
+            document.write("random값이 더 크다");
+        }
+        
+        else if ( random < user) {
+            document.write("random값이 더 작다");
+        }
+
+        else if (random == user) {
+            document.write("정답!");
+        }
+         */      
+
+        
+        //2. while문과 break;문을 사용해서 prompt로 값을 받고 출력해주기
+        let random = Math.random()*100; // 0~99까지 들어감.
+            random = parseInt(random); //소수값을 포함하는 랜덤값을 정수만 저장함
+        
+        
+        let user = prompt("1~100의 숫자를 넣어주세요"); //prompt로 바꾸기
+        while (true) {
+
+        if (random > user) {
+            user = prompt("랜덤값이 큼");
+            //alert();을 이용해도 상관없음.
+            
+        }
+        
+        else if ( random < user) {
+            user = prompt("랜덤값이 작음");
+            
+        }
+
+        else if (random == user) {
+            document.write("정답!");
+            break;
+        }
+    }
+
+    </script>
+
+
+
+</body>
+</html>

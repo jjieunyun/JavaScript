@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while문 실습</title>
+</head>
+<body>
+    
+    <script>
+        //프롬포트창에 10+10?이라는 질문을 하고 맞출때 까지 반복하는 while문
+        /* 아까 했던 예제!!
+        let word ="";
+        while (word != "20") { 
+            word = prompt("10 + 10?");
+        }
+        document.write("<p>while문을 빠져나왔습니다.</p>");
+        */
+
+        // num 값을 빈칸으로 두는 이유 :  무조건 한번은 실행하기 위해서 
+        let num="";
+        //prompt로 받을 값이 문자열이기 때문에 ""로 넣음 , 0으로 넣으면 오류가 될수있음.
+        while (num != "20") {
+            num = prompt("10+10?");
+        }
+        document.write("정답입니다!")
+    </script>
+
+</body>
+</html>10

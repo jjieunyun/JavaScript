@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>while반복문</title>
+</head>
+<body>
+
+    <script>
+        //while반복문
+        //반드시 증가하는 값을 넣어야 무한루프에 걸리지 않음
+        //값을 입력받아서 조건에 걸리는 값이 거짓이 될 수 있도록 해야만 while문이 종료됨
+        //break문으로도 while문을 빠져나가게 할 수있음. 
+        let a =0;
+        while (a <10){
+            document.write(a);
+            a++;
+        }
+
+        let word ="";
+        while (word == ""){
+            document.write("빈값입니다.");
+            word = prompt("값을 입력해주세요.");
+
+        }
+        document.write(`<p>${word}</p>`);
+
+        //숫자 0을 입력했을 때 while문이 멈추게 
+        //0이 아니다 는 true이기 ㄸㅐ문에 while문이 계속 반복되게됨
+        //특정한 조건에 따라서 얼마만큼 반복해야 할 지 모를때 사용하게됨
+        while (word != "0") { 
+            document.write(`<p>${word}</p>`);
+            word = prompt("값을 입력해주세요.");
+        }
+        document.write("<p>while문을 빠져나왔습니다.</p>");
+
+    </script>
+</body>
+</html>
