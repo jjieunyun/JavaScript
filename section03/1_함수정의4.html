@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수표현식과 화살표함수</title>
+    <script>
+        let subArrow = (num1,num2) => num1 - num2;
+
+    </script>
+</head>
+<body>
+    <script>
+        //2.함수표현식
+        let hi = function() {  //함수이름없음 , 매개변수 없음
+            document.write("안녕 <br>")  //함수내용
+        };   //변수에다 넣는거라서 끝을 세미콜론으로 마무리해야함
+
+        let hiName = function(name) {  //함수이름없음 , 매개변수 없음
+            document.write(name +", 안녕? <br>")  //함수내용
+        };   //변수에다 넣는거라서 끝을 세미콜론으로 마무리해야함
+
+        hi(); //호출하는 방법은 일반함수와 동일
+        //hiName = "다른 값";   ->변수의 이름이 겹쳐지지 않게 주의; 다른값을 할당하면 함수사라짐.
+        hiName("분돼");
+
+        let sub = function(num1,num2){
+            let result =0;
+            result = num1 - num2 ;
+            return result;
+        };
+        document.write(sub(5,10) + "<br>");
+
+        //선언식 함수와 표현식 함수의 차이점
+        a();    //선언식함수 호출 -> 위치상관없이 호출가능 (=먼저 정의되지 않아도 호출가능)
+        //b();   //표현식 함수는 호출되지 않음. 표현식 함수는 함수를 먼저 선언하고 호출해야함.
+        function a() {
+            document.write("선언식 함수입니다.<br>")
+        }
+
+        let b = function () {
+            document.write("표현식 함수입니다.<br>")
+        };
+
+        //선언식 함수와 표현식함수가 블록안밖에서 어떻게 사용되는지 확인하고자 함.
+        
+        if (true) {
+            function innerFunc() {
+                document.write("블록안에서 만든 선언식 함수<br>")
+            }
+            let innerFuncNoname = function() {
+                document.write("블록안에 만든 표현식 함수<br>")
+            };
+            innerFunc();
+            innerFuncNoname();
+        }
+        innerFunc();
+        //innerFuncNoname(); //변수가 살아있는 동안에 사용가능; 오류나서  껐음
+
+        //3.화살표함수 
+        //여러줄을 작성할 때
+        let hiA = () => {
+            document.write("안녕?나능 화살표함수 여러줄은 중괄호<br>")
+        };
+        //화살표 함수를 한줄로 작성할 때 ->return값으로 출력
+        let hiReturn = () => "안녕? 화살표함수 한줄<br>";
+
+        /*
+        cf)화살표 함수를 선언식과 표현식으로 바꿔서 표현한 예제
+        선언식 
+        let hiA() {
+            document.write("안녕?화살표함수<br>")
+        }
+
+        표현식
+        let hiA = function(){
+            document.write("안녕?화살표함수<br>")
+        };
+        */
+
+        hiA();
+        document.write(hiReturn());  //중괄호가 없어지고 리턴될 값만 출력됨
+
+        //화살표 함수를 이용해 넘버를 스트링으로 출력
+        //매개변수가 하나인 화살표 함수 
+        let numToString = n => String(n); //n은 매개변수
+        //매개변수가 두개인 화살표 함수
+        let add = (a,b) => a +b; 
+        document.write(subArrow(10,3) + "<br>");
+
+
+        //함수실습
+        
+        function ask(q, yes, no) { //q = 질문(문자열)
+            if (confirm(q)) {
+                yes();  // 함수를 입력받아 사용
+                //yes라는 매개변수안에 익명함수가 들어와서 
+                //매개변수 이름으로 함수호출가능 ()를 통해서 호출가능
+            }
+            else {
+                no(); //함수를 입력받아 사용
+            }
+        }
+        /*
+        ask(
+            "동의 하십니까?", 
+            function() {alert("동의하셨습니다.");} , //함수의 내용을 인수로 전달
+            function() {alert("취소버튼을 누르셨습니다.");} //
+        );
+*/
+  ask (
+            "동의 하십니까?", 
+            () => alert("동의하셨습니다.") , //함수의 내용을 인수로 전달
+            function() {alert("취소버튼을 누르셨습니다.");} // 쓰는방식 위에꺼랑 똑같음
+        );
+</script>
+</body>
+</html>

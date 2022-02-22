@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>화살표함수 실습</title>
+</head>
+<body>
+    함수실습
+    <script>
+        
+        function ask(q, yes, no) { //q = 질문(문자열)
+            if (confirm(q)) {
+                yes();  // 함수를 입력받아 사용
+                //yes라는 매개변수안에 익명함수가 들어와서 
+                //매개변수 이름으로 함수호출가능 ()를 통해서 호출가능
+            }
+            else {
+                no(); //함수를 입력받아 사용
+            }
+        }
+        /*
+        ask(
+            "동의 하십니까?", 
+            function() {alert("동의하셨습니다.");} , //함수의 내용을 인수로 전달
+            function() {alert("취소버튼을 누르셨습니다.");} //
+        );
+*/
+  ask (
+            "동의 하십니까?", 
+            () => alert("동의하셨습니다.") , //함수의 내용을 인수로 전달
+            function() {alert("취소버튼을 누르셨습니다.");} //
+        );
+
+        let hi = () =>document.write("안녕<br>");
+        let hi_1 = (name) =>document.write(name +"안녕<br>");
+        hi();
+        hi_1("이름");
+    </script>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수정의2_명시적(선언적)함수</title>
+    <script>
+        //선언적(명시적) 함수
+        function functionNameAnother () { //매개변수 x
+            document.write("윤지은입니다. <br>"); //함수내용 출력
+        } //return 할당하지않고 함수선언 끝
+
+        //동일한 이름의 함수, 매개변수 1개
+        function introName(name){
+            document.write("안녕하세요 " + name +"입니다." + address +"에 거주중입니다.<br>");
+        }
+
+        //동일한 이름 함수, 매개변수가 2개
+        function introName(name, address){
+            document.write("안녕하세요 " + name +"입니다." + address +"에 거주중입니다.<br>");
+        }
+
+        //매개변수1개 , 리턴값을 주는 함수
+        function introNameReturn(name) {
+            return "안녕하세요 " + name + "입니다. 반갑습니다.<br>"; 
+        }
+
+        //
+        function introNameReturnLog(name) { //매개변수1개
+            console.log("함수가 출력되었습니다.");  //함수내용
+            return "안녕하세요 " + name + "입니다. 반갑습니다.<br>";  //리턴값
+        }
+
+        function area(num1,num2){ //매개변수2개입력
+            return num1 * num2;  //let result = num1 * num2
+                                // return result ; 도 가능
+        }
+
+        //쌤코드
+        function avg(array) { //매개변수로 배열들고옴 1개임
+            let avgNum =0; 
+            let sumNum =0;
+            for (num of array) {
+                sumNum += num;
+            }
+            return avgNum = sumNum / (array.length);
+             //길이를 가져와서 나눔
+        }
+        //내코드
+        function avrg(array) {
+            let sum = 0;
+            for ( num of numArray) { //for of 문으로 조건문 만들기 (o)
+                sum += num;
+            }
+            return sum / array.length; //num의 갯수로 나누기(array.length로)
+        }
+
+        function add(num1,num2) {
+            if (num1 == undefined) {
+                num1 = 0;
+            }
+            if (num2 == undefined) {
+                num2 = 0;
+            }
+            return  num1 + num2;
+        }
+
+        function add_2(num1,num2=0) { //매개변수 2개, num2에 기본값 넣어줌
+            if (num1 == undefined) {  //if문활용
+                num1 = 0;
+            }
+            return  num1 + num2;   //결과값 반환
+        }
+
+        function numPrint(a, ...b) {  //매개변수 총2개, b는 나머지 매개변수로 배열로받음
+            document.write(a + "<br>");
+            document.write(b[0] + "<br>");  //배열의 index로 접근가능
+        }
+        function numArgu(a){  //매개변수 1개
+            document.write(a + "<br>"); //함수 출력
+            document.write(arguments[3] + "<br>"); //아규먼츠사용 배열 4번째 출력
+        }  //arguments는 모든 인수를 참조하여 값을 들고옴
+
+        function addAll() {
+            let sum = 0;
+            for ( num of arguments) {
+                sum += num;
+            }
+            return sum;
+        }
+    </script>
+</head>
+<body>
+
+    html문서는 위에서 부터 출력이됨. 
+    요소들을 먼저 출력한 후에 요소들에 접근하기 위해서 스크립트를 바디 아랫쪽에 스크립트작성
+    <p></p>
+
+    <script>
+        //매개변수와 리턴값이 있는 함수의 형태
+        //선언적(명시적) 함수
+        function functionName(name) { //매개변수는 name 값을 받아올수있따.
+            document.write(name + "<br>"); //html에 출력하는 코드
+            return name + "입니다."; // name입니다를 반환
+            //모든함수는 리턴값을 갖는다. 없을경우 undefined반환
+        } //함수선언 끝
+
+        //함수 호출
+        functionName("윤지은");
+
+        function intro() {
+            document.write("안녕하세요, 반갑습니다.<br>");
+        }
+        intro();
+
+        functionNameAnother();
+        introName("배고프다","집");
+
+        //리턴값을 받아 출력한 함수
+        document.write(introNameReturn("신동헌"));
+        document.write(introNameReturnLog("윤하은돼지"));
+        document.write(area(5,10) + "<br>");
+        
+        //배열로 받은 값을 모두 더하고 갯수만큼 나눠서 평균값 구하기 
+        let numArray = [30,60,40,60,20];
+        //내코드
+        document.write(avrg(numArray) + "<br>");
+        //쌤코드
+        document.write(avg(numArray) + "<br>");
+
+        document.write(add(5) + "<br>");
+        document.write(add_2(66) + "<br>");
+        numPrint(1,2,3,4,5,6,7 + "<br>");
+        numArgu(556,52,586,363,5622 + "<br>");
+        document.write(addAll(5) + "<br>");
+    </script>
+</body>
+</html>

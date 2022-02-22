@@ -114,10 +114,15 @@
 
         let day = "월";
             switch (day) {
-                case "월" ,"수", "금", "일" : 
+                case "월" :
+                case "수" :a
+                case "금" :
+                case "일" : 
                     document.write("Oh, my god <br>");
                     break;
-                case "화" ,"목", "토" : 
+                case "화" :
+                case "목":
+                case "토": 
                     document.write("Oh, my god <br>");
                     break;
             }
@@ -180,13 +185,13 @@
         document.write("1~20까지 정수중에서 2,3의 배수가 아닌 수의 합 : "+ notSum + "<br>");
         
         //2. 6의 약수를 오름차순으로 출력하는 구하는 코드를 작성하세요
-         let numbe= 6;
-         for (let i=1; i<=numbe;i++) {
-             if (numbe % i ==0) {
+        let numbe= 6;
+        for (let i=1; i<=numbe;i++) {
+            if (numbe % i ==0) {
                 document.write(i+" ");
-             }
+            }
             
-         }
+        }
         
 
             document.write("<br>");
@@ -205,6 +210,7 @@
         }
 
         //4. 아래와 같은 삼각형 출력하세요.
+        //사각형을 먼저 출력하고 삼각형이 어떻게 출력이 되는지 확인함
         for (i=1;i<=6;i++) { 
             for (let j=1; j<=i; j++) { 
                 document.write("*");
@@ -214,14 +220,13 @@
 
         //로또
     
-            let lottoArray = ["A","B","C","D","E"];
-            
+        let lottoArray = ["A","B","C","D","E"];
             for (let lotto of lottoArray) {
                 document.write( lotto + " : ");
                 for (let i =1 ;i <=6; i++) {
-                    let random = Math.random()*100
-                    random = parseInt(random);
-                    document.write(random + ".");
+                    let random = Math.random()*45+1
+                    random = parseInt(random); //1~45값
+                    document.write(random + ",");
             }
             lotto += 1;
             document.write("<br>")
