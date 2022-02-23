@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장함수 실습_paseInt</title>
+</head>
+<body>
+    <script>
+        //실습_1
+        //paseInt를 사용하여 나이를 입력하면, 태어난 년도를 알려주는 코드를 작성하세요/
+
+        function ageToYear() {
+            let age = prompt("나이를 입력하세요"); 
+            age = parseInt(age); //받은 값을 정수로 변환
+            let year = 2022 - age + 1;
+            return year; //return을 통해서 year값을 가져옴
+        }
+
+        
+        document.write("태어난 년도는" + ageToYear() + "<br>")
+
+    </script>
+</body>
+</html>

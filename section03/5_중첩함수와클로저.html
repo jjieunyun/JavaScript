@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>중첩함수와 클로저</title>
+</head>
+<body>
+    <script>
+        //1. 중첩함수
+        //외부에서 정의될 것도 내부함수에서 사용할 수 있는 장점이 있다.
+        function f(){ //감싸고있는 함수 -> 상위함수
+            let value = 123;
+            // 함수안에서 형성된 함수 
+            function g() {   //f함수 안에 g함수를 중첩함 
+                alert(value); //상위함수의 값을 들고올 수 있음. 상위함수의 값 접근가능
+            }
+            g();  // g함수 밖에 호출을 해야 실행됨
+        }
+        f();
+
+        function add(a,b) {
+            let sum = a + b;
+            function printNum() {
+                document.write("합 : "+sum + "<br>")
+            }
+        printNum();
+        }
+
+        add(5,6);
+
+        //2. 클로저함수
+        let globalCount = 0;
+        function countG() {
+            globalCount++;  // globalCount +=1;또한 가능
+        }
+
+        function countL () {
+            let localCount =0;  // 이 함수를 전역 변수처럼 사용
+            function plus() {  //return을 통해 익명함수를 되돌려줌
+                return localCount ++;
+            }
+            return plus();
+        }
+
+        // 클로저 함수를 사용하기 위한 함수
+        let countTest = countL();
+        alert(countTest());
+        alert(countTest());
+        alert(countTest());
+
+        //람다형식 
+        let lambda = (function() { return "람다형식입니다.";}) (); 
+
+        //책 p.134의 클로저함수 -> 람다형식이용
+        let count = ( function () {
+            let localCount =0;  // 이 함수를 전역 변수처럼 사용
+            function plus() {  //return을 통해 익명함수를 되돌려줌
+                return localCount ++;
+            };
+        }) ();
+        
+
+
+    </script>
+</body>
+</html>

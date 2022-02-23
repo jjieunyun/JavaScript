@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변수의 적용범위</title>
+</head>
+<body>
+    <script>
+        //if문 안에 넣어주면 같은 이름의 변수도 출력가능함.
+        //함수를 사용하게 되면 return해서 가져오기때문에 사용가능
+        if(true) {
+            let innerNum = 10;  //let은 블록안에서 작성되면 블록이 끝나면 사라진다.
+            console.log(innerNum);
+        }
+        
+        let outerNum = 20;
+        console.log(outerNum);
+
+        let sum =0;
+        for (let i=0; i<5; i++) { //i값은 지역변수
+            console.log(outerNum)
+        }
+
+        function sumNum(n) {
+            let sum = 0;
+            for(let i =0; i<=n;i++){
+                sum+= i;
+            }
+            return sum;
+        }
+    </script>
+</body>
+</html>

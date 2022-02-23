@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체</title>
+</head>
+<body>
+    <script>
+        //객체 기본 작성표현
+        let Puppy = { //이름은 보통 대문자로 작성함
+            //속성
+            //속성값은 문자열, 숫자형뿐만 아니라 객체(object)도 들어올 수있다.
+            name : "호두",  //속성을 추가할때는 콤마를 사용하고 한눈에 보기 좋게 줄바꿈
+            //메소드
+            //표현식함수(익명함수)와 화살표함수로도 작성할 수있다.
+            eat : function() {
+                document.write("밥을 먹습니다.<br>");
+            },
+            namePrint : function() {
+                //this를 이용하여 속성값 또는 메소드를 참조할 수있다.
+                console.log(this.name + "입니다.<br>")
+            }
+
+        };  //변수 안에다가 생성했기 때문에 마지막에 ;붙여주기
+
+        //1. 리터럴 표기를 이용한 객체의 생성
+        let Person = {
+            name : "홍길동",
+            address : "부산",
+            intro : function() { 
+                return this.name + "입니다. "+ this.address +"에 거주중입니다.";
+            }
+        }
+
+        let MyCookie = {
+            shape : "원",
+            flavor : "초코",
+            intro : function() {
+                return `${this.shape} 모양의 ${this.flavor} 맛 입니다.`;
+            },
+            change : function(shape) { //shape매개변수를 통해 값을 받아올 수 있다.
+                this.shape = shape;   // 값을 속성에 할당해 줄수있다.
+            }
+        }
+        
+
+        //2. new object() 함수를 이용한 객체의 생성
+        let tree = new Object();  //빈 객체를 생성
+            tree.height = 200;          // 속성값 추가
+            tree.type = "은행나무";
+            tree.fall = function() {    //메소트 추가
+                return "잎사귀가 노랗게 되었습니다.";
+            };
+        
+    </script>
+</body>
+</html>

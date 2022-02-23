@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>재귀함수</title>
+</head>
+<body>
+    <script>
+        //1. 재귀함수표현 (반복문표현 참고)
+        //반복문
+        for (let i= 0;i<5;i++) {
+            document.write("for구문; 재귀함수와 뭐가 다른지 확인하려고 씀<br>");
+        }
+        //재귀함수
+        function hi(n) { //은 반복할 숫자
+            if (n==0) {
+                return ; //undefined ->함수를 끝내는 역할
+            }
+            document.write("재귀함수<br>")
+            return hi(n-1);
+        }
+
+        hi(5);  //함수호출
+
+
+        //2. sum ;for구문
+        let sumFor =0;
+        for(let i=0; i<=5;i++) {
+            sumFor += i;
+        }
+        document.write(sumFor + "<br>");
+
+        //sum ;재귀함수
+        function sumSelf(n) {
+            if (n >0) {
+                n += sumSelf(n-1);  // n = n + sumSelf(n-1) ;
+                return n;
+            }
+            else {
+                return 0; //0없으면 undefined되서 NaN이 뜨게됨
+            }
+        }
+
+        document.write(sumSelf(5) +"<br>")
+
+
+        //재귀함수 실습
+        //팩토리얼 : n! = n*(n-1)*(n-2)..; 재귀함수로 팩토리얼 5 출력하기
+
+        //for문
+        
+        let startNum2 = 5; 
+        let fact = 1;
+        for (let a = startNum2; a>0; a--) {
+            // fact = fact*a;
+            fact *= a;
+        }   
+        document.write("<br>5팩토리얼 : " + fact+ "<br>");
+
+        //재귀함수
+        function factSelf (n) {
+            if (n>0) {
+                return n *= factSelf(n-1);  //리턴값에서 계산하면 -> 빠져나오면서 계산함
+
+            }
+            else {
+                return 1;
+            }
+        }
+        document.write(factSelf(5) + "<br>")
+
+        // return n= 5* [fac(4)]*[fac(3)*[fac(2)*[fac(1)]]]]]
+    </script>
+</body>
+</html>

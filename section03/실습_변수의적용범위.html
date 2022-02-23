@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습_변수의적용범위</title>
+</head>
+<body>
+    <script>
+        //1. for구문(블록)으로 확인하기 :  전역변수, 지역변수 확인
+        let maxCount = 10; //let -> ES6부터 사용된 것(모던자바스크립트에서 추가)
+        for (i=1; i<=maxCount; i++) {
+            let checkCount = i;
+            document.write(maxCount + "중의 "+ checkCount +"<br>")
+        }
+
+        //2. 함수로 확인하기
+        let outString = "밖에있는 문자입니다. <br>"
+        function printString() {
+            let inString = "안에있는 문자입니다. <br>"
+            document.write(outString);
+            document.write(inString);
+        }
+
+        printString();
+
+    </script>
+</body>
+</html>
