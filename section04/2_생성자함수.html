@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자함수</title>
+</head>
+<body>
+    <script>
+        //객체생성 3번째
+        //생성자 함수를 이용한 객체생성 
+        //dog - 속성 : name, age , 메소드 : intro{age살입니다. return}
+        
+        function Dog(name, age) {
+            this.name = name;
+            this.age = age; //age라는 속성이름을 두고 생성할때 받은 나이값
+            this.intro = function(){
+                return name +"입니다. " +  age + "살 입니다."
+            }
+        };
+
+        let myDog = new Dog("호두", 3);
+        let joEun = new Dog("조은",29);
+
+        //생성자 함수를 통한  student 객체 생성 (1)
+        function Student(name, score) { //붕어빵기계(틀)
+            this.name = name;    //붕어빵 재료넣기
+            this.score = score;
+            this.study = function () {
+                this.score += 10; 
+                //실행하면 undefined나오지만 메소드 내부에서 실행됨
+            }
+            this.showScore = function() {
+                return this.score;
+            }
+        };
+
+        let myStudent = new Student("홍길동",70);  //홍길동의 붕어빵만들어짐
+        let yourStudent = new Student("성춘향",80);
+
+        //생성자 함수를 통한 BusCard 객체생성 (2)
+        //버스카드 충전, 사용, 현재 보유금액 속성으로
+        function BusCard(money) {
+            this.money = money;
+            this.charge = function(price) {
+                this.money += price;
+            }
+            this.takeBus = function() {
+                if(this.money < 1500) {
+                    return "잔액이 부족합니다.";
+                    
+                }
+                else {
+                    return this.money -= 1500;
+                }
+            }
+            this.showMoney = function() {
+                return this.money;
+            }
+        };
+
+        let myBusCard = new BusCard(1500);
+        let yourBusCard = new BusCard(1000);
+
+        //생성자 함수를 통한 Message 객체생성 (3)
+        function Message(name, content="", time) { // 매개변수에 인수값을 넣지 않고 실행하면 정해진 값이 출력
+            this.name = name;
+            this.content = content;
+            this.time = new Date;
+            this.modifyMessage = function(text){
+                return this.content = text;
+            }
+            this.showMessage = function() {
+                return this.name + "님께서 " + this.content + "를 " + this.time + "에 보내셨습니다."
+            }
+        };
+
+        let myMessage = new Message("꾸꾸","반갑습니다.","02:24");
+        let yourMessage = new Message("호두","안녕하세요","02:24");
+
+        //2. 객체의 속성 삭제
+        delete myMessage.content;
+        delete myMessage.name;
+
+        //3. for...in 과 객채
+        //1. yourMessage의 속성과 메서드의 '이름'출력하기
+        for (let i in yourMessage) {
+            document.write( i + "<br>"); //i가 이름 || yourMessage["name"] = yourMessage.name 같음
+        }
+        
+        //2. myBusCard의 속성과 메서드의 '값' 출력하기
+        let string = "";  
+        for (let my in myBusCard) {
+            string = string + my + " : " + myBusCard[my] + ". <br>";
+        }
+        document.write(string);
+
+        //3. 객체를 속성으로 갖는 객체(사용자객체)
+        let memo = {
+            title : "오늘 할일" ,  //리터럴이기때문에 this필요옶고 속성이름과 속성값넣으면됨
+            todo : {  //todo속성에 객체값이 들어가있음.
+                morning : ["청소","준비"],  //todo 객체는 3개의 배열로 속성을 가지고 있음
+                afternoon : ["수업"],
+                evning : ["정리","독서"]
+            }
+        };
+
+        console.log(memo.todo.evning[0]) // 외부객체.내부객체.속성[배열인덱스] ; 속성값 가져오기
+
+        //4. 사용자객체 실습 - 동물병원 진료차트
+        function AnimalChart(name, kind, age) {  //(1) 생성자함수 이름과 매개변수 작성
+            this.name  = name; //(2) AnimalChart의 속성 넣기
+            this.kind = kind;
+            this.age = age;
+            this.sickness = "";  //빈칸으로 넣어주면됨
+            this.condition = "";
+            this.recieve = function(sickness, condition) {  //(3) 메소드 넣기 ;receive를통해 값 받아오기
+                    this.sickness = sickness;
+                    this.condition = condition;
+            };
+            this.confirm = function () {
+                for (let x in this) {  // this는 생성된 객체를 의미한다.
+                    if( !(x == "recieve" || x == "confirm") ) {  //속성값만 출력하고 메소드는 출력하지 않음
+                        //receive와 confirm이 아닐 때
+                        console.log(this[x]);  
+                    }
+                }
+            };
+        }
+        let first = new AnimalChart("홍길동","초코",1);
+        
+        //console.log(type of x) ;; 자료형이 궁금할 때 사용
+
+    </script>
+</body>
+</html>
