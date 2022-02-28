@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //기본문제
+        //3. 화살표식 함수 아래의 선언적 함수를 화살표식으로 바꾸세요
+                //1) 
+                //function add(a,b) { return a+b };
+
+                let add = (a,b) => {return  a + b};
+                //document.write(add1(1,3) + "<br>");
+
+                //2) 
+                //function messageAlert() { alert("화살표식 함수로 바꿨습니다") }
+
+                let messageAlert = () => { alert("화살표식 함수로 바꿨습니다") }
+                //messageAlert1();
+
+        //4. 재귀 함수
+        // 빈 공간을 채우세요. 
+        //1) 숫자 1+N 까지의 숫자의 합을 구하는 재귀함수입니다
+                function PlusPlus(n) {
+                if(n == 0) {
+                    return 0;
+                }
+                else {
+                    return n += PlusPlus(n-1);
+                }
+            }
+            
+
+        //6. 객체 -아래 객체에 메소드를 추가하세요
+        //추가할 메소드 : bark = "bow-wow";
+                let myDog = {
+                name: "Happy",
+                friends: ["Mini", "Choco"],
+                bark : function() {
+                    return "bow-wow";
+                }
+            };
+
+        //7. 리터럴 값으로 객체 생성
+        //다음 표를 자바스크립트 객체로 나타내시오
+        //(키 이름과 자료형은 적절하다고 생각하는 것으로 사용)
+            /*
+        이름 Nature of Code
+        가격 30000DNJS
+        저자 다니엘 쉬프만
+        ISBN 9788968481901
+        페이지 수 620페이지
+        */
+        
+                let book = {
+                    title : "Nature of Code",
+                    price : "30000원",
+                    author : "다니엘 쉬프만",
+                    isbn : "9788968481901",
+                    psges : "620페이지"  //단위를 뻰다면 숫자형으로 넣어도됨
+                };
+
+        //8. 생성자 함수
+        //다음 표의 객체를 생성할 수 있는 생성자 함수를 만드시오
+        //(생성자 함수 이름은 Product, 키,자료형은 적절하다고 생각하는 것으로 사용)
+        /*
+        이름 돼지삼겹살
+        무게 100g
+        가격 1690원
+        calculate(<무게>) 무게를 기반으로 가격을 계산
+        //예: product.calculate(200)을 입력하면, 100g * 2 = 200g이므로 '3380원'을 출력
+        */
+
+                function Product(name, weigt, price) {
+                    this.name = name;
+                    this.weight = weigt;
+                    this.price = price;
+                    this.calculate = function() {
+                        let result = 0;
+                        result = (this.weight/100) *  this.price;
+                        return result + "원";
+                    }
+
+                };
+
+                let pork = new Product("돼지삼겹살", "100", "1690")
+
+        
+        //●실습 6 문제 
+        //▶함수 3문제
+
+        //1. 아래 함수를 선언식 함수로 작성하고 console에서 호출하세요
+        /*
+        함수 이름: power
+        - 매개 변수를 하나 넣으면 제곱해 준다(예 : power(2) = 4).
+        - 매개 변수를 2개 넣으면 <첫 번째 매개 변수>의 <두 번째 매개 변수> 제곱만큼 해 준다
+        (예 : power(2, 3) = 8).*/
+
+                function power(a,b) {
+                    if (b == undefined) { //(arguments.lenth ==1 )
+                        return a * a;
+                    }
+                    else if (m) {  //return Math.pow(a,b); 해도됨
+                    let pow = 1
+                    for(let i =0; i<m ; i++){
+                        pow *= n   
+                    }
+                    return pow
+                }
+                }
+
+                
+                
+        //2. 아래 함수를 표현식 함수로 작성하고 console에서 호출하세요
+        //함수 이름: multiply
+        //매개 변수로 넣은 값을 모두 곱해준다(예 : multiply(1, 2, 3, 4, 5) = 120).
+
+                //arguments 넣고할때
+                let multiply = function(){
+                    value=1;
+                    for (let i in arguments){ //for 문을 사용 !!
+                    value=value*arguments[i];
+                    }
+                    return value;
+                    };
+                    
+                // ...num으로 할때
+                let multiply2 = function (...num) {
+                    let mult = 1;
+                    for (let n of num) {
+                        mult *= n;
+                    }
+                    return mult;
+                };
+
+        //3. 아래 함수를 선언식 함수로 작성하고 console에서 호출하세요. 
+                function meetAt(a,b,c) {
+                    if(arguments.length == 1) {
+                        return a + "년 ";
+                    }
+                    else if (arguments.length == 2) {
+                        return a + "년 " + b + "월"
+                    }
+                    else if (arguments.length == 3 ) {
+                        return a + "/" + b + "/" + c 
+                    }
+                }
+
+                function meatAt2(a,b,c) {
+                    if (b == undefined) {
+                        return a +"년 ";
+                    }
+                    else if (c == undefined) {
+                        return a + "년 " + b + "월";
+                    }
+                    else {
+                        return a + "년 " + b + "월 " + c + "일";
+                    }
+                }
+
+        //▶객체 3문제
+        //1.아래 객체에서 maps이라는 속성값을 가져오기 위해서 어떻게 접근하면 되는지 작성하세요.
+                const myStorage = {
+                    car: {
+                        inside: {
+                            gloveBox : "maps",
+                            passengerSeat: "crumbs"
+                            },
+                        outside: {
+                            trunk: "jack"
+                        }
+                    }
+                };
+                console.log(myStorage.car.inside.gloveBox);
+
+
+        //2. 아래 생성자 함수를 만드세요.
+                function Product(name, pay) {
+                    this.name = name;
+                    this.pay = pay;
+                    this.keep = function () {
+                        return this.name + "을 보관했습니다."
+                    }
+                    this.getpay = function() {
+                        return Number(this.pay);
+                    }
+                }
+                let prodct1 = new Product("book","6000");
+                let prodct2 = new Product("pencil","2000");
+                let prodct3 = new Product("hat","8000");
+
+        //3. 아래 생성자 함수를 만드세요. 2번에서 만든 객체를 3번의 메서드로 사용
+                function User1 (id, money) {
+                    this.id = id;
+                    this.money = Number(money);
+                    this.buyList = []; //빈값만 넣어주기
+                    this.charge = function(plusMoney) {
+                        return this.money += plusMoney;
+                    }
+                    this.buy = function(product) { //product개체를 받아와야함
+                        this.money -= product.getPay();
+                        this.buyList.push(product.name);
+                    }
+                };
+
+                let customer = new User1("harry","10000");
+
+        //● 응용 3문제
+        //1. 일반함수 
+        //주어진 자연수 A,B 최소공배수(lcm)를 구하는 함수를 만드세요.
+        //(1)번풀이
+                function lcm (a,b) {
+                    let n=1; //1부터 n까지 증가시키면서 b와 곱함
+                    while (n * b % a != 0) { // 1~a 값과 b값을 곱해 a로 나누었을 때 나머지가 0이 아니라면
+                        //반복하는 조건
+                        n++;
+
+                    }
+                    return n *b ;
+                }
+        //(2)번풀이
+                function lcm2 (a,b) {
+                    let n=1; //1부터 n까지 증가시키면서 b와 곱함
+                    let lcmNum = n * b; //변수를 살아있게 하기위해 밖에서 선언함
+                    while (true) { 
+                        if (lcmNum % a == 0) {
+                            //나머지가 이라면 반복문을 나오기
+                            break;
+                        }
+                        n++;
+                    }
+                    return lcmNum;
+                }
+
+        //2. 객체와 함수
+            let myProfile = {
+                name: '김개발',
+                address: {
+                    email: 'geabal@gmail.com',
+                    home: '위워크'
+                    },
+                myfavorite: {
+                    food: [{
+                        name: '샐러드',  //객체의 네임속성을 가져오겠다.
+                        price: 3500
+                        }, {
+                        name: '삼겹살',
+                        price: 15000
+                        }],
+                hobby: ['축구']
+                }
+            }
+        
+            function getAnswer (myProfile) {
+                return myProfile.myfavorite.food[0].name;
+            }
+            
+
+        //3. for문과 배열과 생성자 함수와 객체
+        
+
+        function Profile(name,phoneNumber) {
+            let profileBook = [];
+            this.name = name.profileBook.push();
+            this.phoneNumber = phoneNumber.profileBook.push();
+            this.calling = function () {
+                return this.name + "에게 전화하고 있습니다.";
+            }
+            profileBook.push("harry","0543236543");
+            profileBook.push("Sherlock","0994372684");
+            profileBook.push("John","0120331254");
+        }
+
+        //● 내장객체응용 (2)
+        //1.
+        function printCenter(a) {
+            let result = "";
+            //단어 s의 길이가 짝수인 경우 , 가운데 2개 반환
+            if(a.length % 2 == 0) {
+                result = a.chartAt(Number(a.length/2 ) -1);
+                result = a.chartAt(Number(a.length/2));
+            }
+            //단어 S의 길이가 홀수인경우, 가운데 문자 1개반환
+            else {
+                result = a.chartAt(Number(a.length/2));
+            }
+            return result
+        }
+
+        //2. Array.length Math.random(0~1이하의 난수) 넌센스 Quiz 만들기\
+        let quizArray = [
+            {quiz : "1+1",
+            answer: "2"},
+            {quiz : "2+2",
+            answer: "4"},
+            {quiz : "3+3",
+            answer: "6"},
+            {quiz : "4+4",
+            answer: "8"},
+        ];
+
+        function  randomQuiz(quizArray,n) {
+            //배열의 길이구하기 
+            if ( quizArray.length >= n ) {
+                for(let i=0; i<=n;i++);
+               // prompt(quizArray[]);
+                //prompt(quizArray[Math.floor(Math.random)]);
+            }
+        }
+        randomQuiz(quizArray,2);
+</script>
+</head>
+<body>
+    
+</body>
+</html>

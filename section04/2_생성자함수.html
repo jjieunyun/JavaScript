@@ -79,6 +79,7 @@
         let myMessage = new Message("꾸꾸","반갑습니다.","02:24");
         let yourMessage = new Message("호두","안녕하세요","02:24");
 
+
         //2. 객체의 속성 삭제
         delete myMessage.content;
         delete myMessage.name;
@@ -105,8 +106,8 @@
                 evning : ["정리","독서"]
             }
         };
-
-        console.log(memo.todo.evning[0]) // 외부객체.내부객체.속성[배열인덱스] ; 속성값 가져오기
+        // 외부객체.내부객체.속성[배열인덱스] ; 속성값 가져오기
+        console.log(memo.todo.evning[0]) 
 
         //4. 사용자객체 실습 - 동물병원 진료차트
         function AnimalChart(name, kind, age) {  //(1) 생성자함수 이름과 매개변수 작성
