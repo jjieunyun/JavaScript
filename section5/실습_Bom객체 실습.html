@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // confirm() : 확인을 누르면 현재의 운영체제를 알려주는 함수만들기
+        //cf)navrgator.platform : 운영체제 확인
+        //내답안
+        function infom () {
+            window.confirm("운영체제를 알려드릴까요?")
+            if (true) {
+                document.write(navigator.platform + "입니다.<br>");
+            }
+        }
+
+        //쌤답안
+        let check = confirm("운영체제를 알려드릴까요?");
+        if (check) {
+            document.write(navigator.platform + "입니다.<br>")
+        }
+        else {
+            document.write("취소했습니다.");
+        }
+        
+
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

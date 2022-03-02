@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>제목입니다</title>
+</head>
+<body>
+
+    <h1 id="title">제목입니다</h1>
+    
+    <div class="class">
+        <ul>
+            <li>첫번째 요소입니다.</li>
+            <li>두번째 요소입니다.</li>
+            <li>세번째 요소입니다.</li>
+            <li>세번째 요소입니다.</li>
+            <li>세번째 요소입니다.</li>
+            <li>세번째 요소입니다.</li>
+        </ul>
+    </div>
+    
+    <form id="form">
+        <input type="text">
+        <input type="submit" value="제출">
+    </form>
+
+    <a href="">링크입니다.</a>
+    <p class="class_name">단락입니다.</p>
+
+<script>
+    //변수에 바로 넣지않고 사용하면 어느요소에서 가져왔는지 한눈에 보기 어려움
+    // 변수로 바꿔서 값을 바꾸는 것이 일반적임.
+    document.querySelector(".class_name").innerHTML = "클래스를 통해 수정된 내용입니다"
+    document.querySelector("#title").innerHTML = "아이디를 들고와서 수정된 내용입니다."
+
+    
+    
+    let list = document.querySelectorAll("li") //nodeList : 접근방법은 배열과 동일
+    for (let i =0; i< list.length ;i++) {
+        //document.write("요소들을 한번에 수정한 내용입니다.<br>")
+        list[i].innerHTML ="요소들을 한번에 수정함"
+        list[i].style.color = "blue"
+    }
+    
+
+    // dom객체 선택 후 원하는 요소에 접근가능
+    /*let aElement = document.querySelector("a") //변수선언
+    aElement.innerHTML = "inner Html로 수정한 내용입니다." // 내용바꾸기
+    aElement.herf = "https://www.naver.com"  //링크 바꾸기 
+    aElement.style.textDecoration = "none"; // 밑줄 없애기
+
+    let pElement = docement.queryselector("p") 
+    pElement.className = "new-class"  //클래스네임변경
+*/
+
+    let p = document.querySelector("p")
+    console.dir(p) //객체가 가지고있는 속성들을 확인 할 수 있음.
+
+    let link = document.querySelector("a")
+    link.href = "https://www.daum.net/"
+
+    let formTag = document.querySelector("#form input")
+    formTag.disabled = true
+    formTag.placeholder = "추가해준 힌트입니다." //속성을 추가하거나 변경 가능
+
+    let className = document.querySelector(".class_name")
+    className.style.backgroundColor = "yellow"
+
+    let titled = document.querySelector("#title")
+    titled.style.textDecoration = "line-through"
+
+    //노드로의 접근실습1
+    let h1Element = document.querySelector("h1")
+    h1Element.childNodes[0].nodeValue
+
+    list[0].parentNode.nextElementSibling
+    list[0].parentNode.firstChild
+    list[0].parentNode.firstChild.nextElementSibling
+
+
+    //노드로의 접근실습 2
+    let ulElement = document.querySelector("ul");
+    ulElement.nodeName
+    h1Element.firstChild.nodeValue = "nodeValue값을 통해 내용을 바꾸었습니다."
+
+    //노드에 추가
+    let pElement = document.createElement("p")
+    pElement.innerHTML = "값을 추가합니다"
+    let atrr = document.createAttribute("style")
+    atrr.value = "color : red"
+    pElement.setAttributeNode(atrr) //이미 한번쓴 atrr은 다른곳에 쓸수없음 쓸려면 복제해야함
+    
+    //atrr다른곳에 써보기
+    document.querySelector("div").appendChild(pElement)
+    h1Element.setAttributeNode(atrr.cloneNode(true)) //한번쓴 atrr노드 재활용
+
+    //li 삭제하기
+    list[5].remove()
+    ulElement.removeChild(ulElement.childNodes[9])
+
+    //속성 삭제하기
+    pElement.removeAttribute("style")
+
+</script>
+</body>
+</html>
