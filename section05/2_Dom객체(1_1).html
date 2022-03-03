@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM객체 관리 실습(복제)</title>
+</head>
+<body>
+    <h1 id="title">제목입니다</h1>
+    
+    <div class="class">
+        <ul>
+            <li>1번째 요소입니다.</li>
+            <li>2번째 요소입니다.</li>
+            <li>3번째 요소입니다.</li>
+            <li>4번째 요소입니다.</li>
+            <li>5번째 요소입니다.</li>
+            <li>6번째 요소입니다.</li>
+        </ul>
+    </div>
+    
+    <form id="form">
+        <input type="text">
+        <input type="submit" value="제출">
+    </form>
+
+    <a href="">링크입니다.</a>
+    <p class="class_name">단락입니다.</p>
+    <script>
+        //노드관리 실습 3
+        //복제 h1, p태그 body에 삽입
+        let h1Element = document.querySelector("h1");
+        document.body.append(h1Element.cloneNode(true)); //h1복제
+
+        let pElement = document.querySelector("p");
+        document.body.append(pElement.cloneNode(true)); //p복제 
+        document.body.append(pElement.cloneNode(false)); //p복제 안에값 안가져감
+    </script>
+</body>
+</html>

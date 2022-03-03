@@ -103,6 +103,24 @@
     //속성 삭제하기
     pElement.removeAttribute("style")
 
+    //실습문제
+    //creat로 노드 생성 추가
+    
+    document.querySelector("body").appendChild("p") //바디에 p태그 붙이기
+    let pText = document.createText("텍스트 노드를 이용한 텍스트입니다") // 텍스트노드사용
+    pElement.appendChild(pText);
+    let pAttr = document.createAttribute("style") //속성만들기
+    pAtrr.value = "color : blue";
+    p.setAttributeNode(pAttr);
+    
+    //노드의 관리 2 실습
+    //제거 (attribute)
+    pElement.removeAttribute("style"); // 안에들어간 속성 없애기
+    let ul = document.querySelector("ul"); //ul테그저장
+    ul.childNodes;
+    ul.removeChild(ul.childNodes[1]);
+    ul.remove(); //노드 전체 삭제
+
 </script>
 </body>
 </html>

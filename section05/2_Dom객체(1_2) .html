@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM객체 노드 조작(노드 텍스트,스타일)</title>
+</head>
+<body>
+    <h1 id="title">제목입니다</h1>
+    
+    <div class="class">
+        <ul>
+            <li>1번째 요소입니다.</li>
+            <li>2번째 요소입니다.</li>
+            <li>3번째 요소입니다.</li>
+            <li>4번째 요소입니다.</li>
+            <li>5번째 요소입니다.</li>
+            <li>6번째 요소입니다.</li>
+        </ul>
+    </div>
+    
+    <form id="form">
+        <input type="text">
+        <input type="submit" value="제출">
+    </form>
+
+    <a href="">링크입니다.</a>
+    <p class="class_name">단락입니다.</p>
+    <script>
+        //노드텍스트변경,스타일변경
+        let p =document.querySelector("p");
+        p.textContent = "TextContent로 바꾼 내용입니다."
+        p.setAttribute("class","name"); //클래스 이름변경
+        p.setAttribute("style","color:red"); //스타일 바꾸기
+        p.style.backgroundColor = "gray" // 글씨 색은 그대로 + 배경바꾸기
+        //p.setAttribute("style","color:yellow"); // 이전 스타일 없어짐
+        
+        //태그 값 변경
+        let li = document.createElement("li"); 
+        li.textContent = "교체할 값입니다."; //값 넣어주기
+        let ul = document.querySelector("ul"); //부모 들고오기
+        ul.replaceChild(li,ul.firstElementChild) //첫번째 li 값을 바꾸기
+
+        //a태그만들어서 li안에 넣기
+        let a = document.createElement("a")
+        a.textContent = "a태그안에 들어갔는지 확인^^" //a태그 만들기
+        let liSibling = ul.firstElementChild.nextElementSibling //위치 변수에 저장
+        //두번째 li에 a값넣기. 두번째 콤마에는 위치를 넣어주고자함 (변수를 안만듬)
+        liSibling.replaceChild(a,liSibling.childNodes[0]) 
+        
+        
+        //노드의 조작 실습1
+        let h1 = document.querySelector("h1");
+        h1.textContent = "textContent로 바꾼 내용입니다";
+        h1.setAttribute("class","className");
+        h1.style.color = "blue";
+    </script>
+</body>
+</html>
