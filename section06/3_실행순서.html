@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바스크립트 실행순서</title>
+</head>
+<body>
+     <h1>이벤트가 실행되는 DOM객체입니다.</h1>
+     <h3>비동기함수가 실행되는 DOM객체입니다.</h3>
+    <script>
+        //위 아래로 진행되는 코드
+        const h1 = document.querySelector("h1"); 
+        const h3 = document.querySelector("h3"); //변수의 이름을 선언하고 값을 넣는 형태와 동일함
+        let score = 0;
+
+        score++;
+
+        //함수
+        function eventFunc () { //함수가 실행되었을때 h1을 score로 바꿔주는 일
+            h1.textContent = score;
+        }
+        //이벤트
+        h1.addEventListener("click",eventFunc); //클릭했을때 실행되게
+
+        //비동기함수
+        setTimeout(
+            function() {
+                h3.textContent = score;
+            }, //실행되는 함수
+            3000); //시간
+    </script>
+</body>
+</html>
